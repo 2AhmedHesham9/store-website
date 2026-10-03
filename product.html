@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تفاصيل المنتج - تيشيرت قطن أوفر سايز">
+    <title>تيشيرت قطن أوفر سايز | شباب ستايل</title>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar (نفس السابق) -->
+    <nav class="navbar navbar-expand-lg fixed-top main-navbar" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">
+                <i class="fa-solid fa-shirt"></i>
+                <span>شباب <span class="text-gradient">ستايل</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shop.html">المتجر</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">الأقسام</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="shop.html?cat=youth">ملابس شبابي</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=classic">ملابس كلاسيك</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=sport">ملابس رياضية</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=casual">كاجوال</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">من نحن</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-actions d-flex align-items-center gap-3">
+                    <button class="icon-btn" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                    <a href="wishlist.html" class="icon-btn position-relative">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="badge-count" id="wishlistCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn position-relative" id="cartBtn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="badge-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="ابحث عن منتج..." id="searchInput">
+                <button class="close-search" id="searchClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content" data-aos="fade-up">
+                <h1>تفاصيل المنتج</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                        <li class="breadcrumb-item"><a href="shop.html">المتجر</a></li>
+                        <li class="breadcrumb-item active">تيشيرت قطن أوفر سايز</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Product Details
+    ═══════════════════════════════════════ -->
+    <section class="product-details-section section-padding">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Gallery -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="product-gallery">
+                        <!-- Main Image -->
+                        <div class="main-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800"
+                                alt="تيشيرت قطن أوفر سايز" class="main-image" id="mainImage">
+                            <span class="product-badge sale gallery-badge">خصم 20%</span>
+                            <button class="zoom-btn" id="zoomBtn">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </button>
+                        </div>
+
+                        <!-- Thumbnails -->
+                        <div class="thumbnail-list">
+                            <div class="thumbnail active"
+                                data-img="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200"
+                                    alt="صورة 1">
+                            </div>
+                            <div class="thumbnail"
+                                data-img="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800">
+                                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=200"
+                                    alt="صورة 2">
+                            </div>
+                            <div class="thumbnail"
+                                data-img="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800">
+                                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=200"
+                                    alt="صورة 3">
+                            </div>
+                            <div class="thumbnail"
+                                data-img="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=800">
+                                <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=200"
+                                    alt="صورة 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Info -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="product-details-info">
+
+                        <span class="product-cat">شبابي</span>
+                        <h1 class="product-details-title">تيشيرت قطن أوفر سايز</h1>
+
+                        <!-- Rating -->
+                        <div class="product-details-rating">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="rating-text">4.0 (24 تقييم)</span>
+                            <span class="divider">|</span>
+                            <span class="sold">تم بيع 150 قطعة</span>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="product-details-price">
+                            <span class="new-price">240 ج</span>
+                            <span class="old-price">300 ج</span>
+                            <span class="discount-badge">وفر 60 ج</span>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="product-details-desc">
+                            تيشيرت قطن 100% بتصميم عصري أوفر سايز. مريح جداً ومناسب لكل المناسبات،
+                            من الخروج اليومي للجامعة أو النادي. جودة عالية ومتانة تدوم.
+                        </p>
+
+                        <!-- Color Selection -->
+                        <div class="product-option">
+                            <label>اللون: <strong id="selectedColor">أسود</strong></label>
+                            <div class="color-options">
+                                <button class="color-btn active" data-color="أسود"
+                                    style="background: #1a1a2e;"></button>
+                                <button class="color-btn" data-color="أبيض"
+                                    style="background: #ffffff; border: 2px solid #ddd;"></button>
+                                <button class="color-btn" data-color="أحمر" style="background: #e94560;"></button>
+                                <button class="color-btn" data-color="أزرق" style="background: #4a90e2;"></button>
+                            </div>
+                        </div>
+
+                        <!-- Size Selection -->
+                        <div class="product-option">
+                            <label>المقاس: <a href="#" class="size-guide">دليل المقاسات</a></label>
+                            <div class="size-options">
+                                <button class="size-btn" data-size="S">S</button>
+                                <button class="size-btn active" data-size="M">M</button>
+                                <button class="size-btn" data-size="L">L</button>
+                                <button class="size-btn" data-size="XL">XL</button>
+                                <button class="size-btn" data-size="XXL">XXL</button>
+                            </div>
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="product-option">
+                            <label>الكمية:</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="qtyMinus"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" value="1" min="1" max="10" id="qtyInput">
+                                <button class="qty-btn" id="qtyPlus"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="product-details-actions">
+                            <button class="btn btn-primary btn-lg" id="addToCartDetail">
+                                <i class="fa-solid fa-cart-plus"></i> أضف للسلة
+                            </button>
+                            <button class="btn btn-outline-primary btn-lg wishlist-btn" id="addToWishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="btn btn-outline-primary btn-lg share-btn">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </button>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="product-features">
+                            <div class="feature-row">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <div>
+                                    <strong>توصيل سريع</strong>
+                                    <span>خلال 24-48 ساعة</span>
+                                </div>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                <div>
+                                    <strong>استبدال مجاني</strong>
+                                    <span>خلال 14 يوم</span>
+                                </div>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <div>
+                                    <strong>ضمان الجودة</strong>
+                                    <span>100% أصلي</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Tabs Section
+    ═══════════════════════════════════════ -->
+    <section class="product-tabs-section section-padding bg-light-section">
+        <div class="container">
+            <div class="product-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#desc">الوصف</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#specs">المواصفات</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">التقييمات (24)</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Description -->
+                    <div class="tab-pane fade show active" id="desc">
+                        <h4>تفاصيل المنتج</h4>
+                        <p>
+                            تيشيرت قطن 100% بتصميم أوفر سايز عصري. مصنوع من أجود أنواع القطن المصري
+                            لضمان الراحة والمتانة. مناسب لجميع المناسبات، من الخروج اليومي للجامعة
+                            أو التجمعات مع الأصدقاء.
+                        </p>
+                        <ul class="desc-list">
+                            <li><i class="fa-solid fa-check"></i> قطن 100% عالي الجودة</li>
+                            <li><i class="fa-solid fa-check"></i> تصميم أوفر سايز مريح</li>
+                            <li><i class="fa-solid fa-check"></i> ألوان ثابتة لا تبهت مع الغسيل</li>
+                            <li><i class="fa-solid fa-check"></i> خياطة متينة تدوم طويلاً</li>
+                            <li><i class="fa-solid fa-check"></i> مناسب للرجال</li>
+                        </ul>
+                    </div>
+
+                    <!-- Specs -->
+                    <div class="tab-pane fade" id="specs">
+                        <h4>المواصفات</h4>
+                        <table class="specs-table">
+                            <tr>
+                                <td>المادة</td>
+                                <td>قطن 100%</td>
+                            </tr>
+                            <tr>
+                                <td>القصّة</td>
+                                <td>أوفر سايز</td>
+                            </tr>
+                            <tr>
+                                <td>الأكمام</td>
+                                <td>قصيرة</td>
+                            </tr>
+                            <tr>
+                                <td>الرقبة</td>
+                                <td>دائرية</td>
+                            </tr>
+                            <tr>
+                                <td>المقاسات المتوفرة</td>
+                                <td>S - XXL</td>
+                            </tr>
+                            <tr>
+                                <td>الألوان المتوفرة</td>
+                                <td>أسود، أبيض، أحمر، أزرق</td>
+                            </tr>
+                            <tr>
+                                <td>طريقة الغسيل</td>
+                                <td>غسيل يدوي أو ماكينة - ماء بارد</td>
+                            </tr>
+                            <tr>
+                                <td>بلد المنشأ</td>
+                                <td>مصر</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Reviews -->
+                    <div class="tab-pane fade" id="reviews">
+                        <h4>تقييمات العملاء (24)</h4>
+
+                        <div class="rating-summary">
+                            <div class="rating-big">
+                                <h2>4.0</h2>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <p>من 24 تقييم</p>
+                            </div>
+                            <div class="rating-bars">
+                                <div class="rating-bar-row">
+                                    <span>5 نجوم</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 50%"></div>
+                                    </div>
+                                    <span>12</span>
+                                </div>
+                                <div class="rating-bar-row">
+                                    <span>4 نجوم</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 25%"></div>
+                                    </div>
+                                    <span>6</span>
+                                </div>
+                                <div class="rating-bar-row">
+                                    <span>3 نجوم</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 15%"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                                <div class="rating-bar-row">
+                                    <span>2 نجوم</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 5%"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                                <div class="rating-bar-row">
+                                    <span>1 نجمة</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 5%"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reviews List -->
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <img src="https://i.pravatar.cc/60?img=12" alt="عميل">
+                                <div class="review-content">
+                                    <div class="review-header">
+                                        <h6>أحمد محمد</h6>
+                                        <span class="review-date">منذ 3 أيام</span>
+                                    </div>
+                                    <div class="stars small">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>جودة ممتازة جداً والقماش مريح جداً. أنصح بشرائه 👌</p>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <img src="https://i.pravatar.cc/60?img=33" alt="عميل">
+                                <div class="review-content">
+                                    <div class="review-header">
+                                        <h6>محمود علي</h6>
+                                        <span class="review-date">منذ أسبوع</span>
+                                    </div>
+                                    <div class="stars small">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    <p>التيشيرت جميل لكن المقاس جاء أصغر قليلاً من المتوقع. بشكل عام راضي.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Review -->
+                        <div class="add-review">
+                            <h5>أضف تقييمك</h5>
+                            <form id="reviewForm">
+                                <div class="rating-input">
+                                    <span>تقييمك:</span>
+                                    <div class="stars-input">
+                                        <i class="fa-regular fa-star" data-rating="1"></i>
+                                        <i class="fa-regular fa-star" data-rating="2"></i>
+                                        <i class="fa-regular fa-star" data-rating="3"></i>
+                                        <i class="fa-regular fa-star" data-rating="4"></i>
+                                        <i class="fa-regular fa-star" data-rating="5"></i>
+                                    </div>
+                                </div>
+                                <textarea class="form-control" rows="4" placeholder="اكتب تقييمك..."
+                                    required></textarea>
+                                <button type="submit" class="btn btn-primary mt-3">
+                                    <i class="fa-solid fa-paper-plane"></i> إرسال التقييم
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Related Products
+    ═══════════════════════════════════════ -->
+    <section class="related-section section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-subtitle">اكتشف المزيد</span>
+                <h2 class="section-title">منتجات <span class="text-gradient">مشابهة</span></h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500" alt="منتج"
+                                loading="lazy">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                <button class="action-btn"><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-cat">شبابي</span>
+                            <h5 class="product-title"><a href="product.html">تيشيرت مطبوع</a></h5>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i><span>(4.0)</span>
+                            </div>
+                            <div class="product-price"><span class="new-price">220 ج</span></div>
+                            <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                للسلة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500" alt="منتج"
+                                loading="lazy">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                <button class="action-btn"><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-cat">كلاسيك</span>
+                            <h5 class="product-title"><a href="product.html">قميص كلاسيك</a></h5>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><span>(5.0)</span>
+                            </div>
+                            <div class="product-price"><span class="new-price">450 ج</span></div>
+                            <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                للسلة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500" alt="منتج"
+                                loading="lazy">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                <button class="action-btn"><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-cat">رياضي</span>
+                            <h5 class="product-title"><a href="product.html">هودي رياضي</a></h5>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i><span>(4.5)</span>
+                            </div>
+                            <div class="product-price"><span class="new-price">380 ج</span></div>
+                            <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                للسلة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=500" alt="منتج"
+                                loading="lazy">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                <button class="action-btn"><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-cat">كاجوال</span>
+                            <h5 class="product-title"><a href="product.html">بنطلون جينز</a></h5>
+                            <div class="product-rating">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i><span>(4.0)</span>
+                            </div>
+                            <div class="product-price"><span class="new-price">320 ج</span></div>
+                            <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                للسلة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Scroll Top -->
+    <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3" id="toastContainer"></div>
+
+    <!-- Zoom Modal -->
+    <div class="zoom-modal" id="zoomModal">
+        <button class="zoom-close" id="zoomClose"><i class="fa-solid fa-xmark"></i></button>
+        <img src="" alt="zoom" id="zoomImage">
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product.js"></script>
+     
+</body>
+
+</html>

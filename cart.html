@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة التسوق | شباب ستايل</title>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div id="loader" class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar (نفس السابق) -->
+    <nav class="navbar navbar-expand-lg fixed-top main-navbar" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">
+                <i class="fa-solid fa-shirt"></i>
+                <span>شباب <span class="text-gradient">ستايل</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shop.html">المتجر</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">من نحن</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-actions d-flex align-items-center gap-3">
+                    <button class="icon-btn" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                    <a href="wishlist.html" class="icon-btn position-relative">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="badge-count" id="wishlistCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn position-relative" id="cartBtn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="badge-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="ابحث عن منتج..." id="searchInput">
+                <button class="close-search" id="searchClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content" data-aos="fade-up">
+                <h1>سلة التسوق</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                        <li class="breadcrumb-item active">السلة</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Cart Section
+    ═══════════════════════════════════════ -->
+    <section class="cart-section section-padding">
+        <div class="container">
+
+            <!-- Empty Cart State -->
+            <div class="empty-cart" id="emptyCart" style="display: none;">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h3>سلة التسوق فارغة</h3>
+                <p>لم تقم بإضافة أي منتجات بعد</p>
+                <a href="shop.html" class="btn btn-primary btn-lg">
+                    <i class="fa-solid fa-bag-shopping"></i> تسوق الآن
+                </a>
+            </div>
+
+            <!-- Cart Content -->
+            <div class="row g-4" id="cartContent">
+                <div class="col-lg-8">
+                    <div class="cart-items-wrapper">
+
+                        <!-- Cart Header -->
+                        <div class="cart-header">
+                            <h4>المنتجات (<span id="cartItemsCount">0</span>)</h4>
+                            <button class="clear-cart-btn" id="clearCart">
+                                <i class="fa-solid fa-trash"></i> مسح الكل
+                            </button>
+                        </div>
+
+                        <!-- Cart Items -->
+                        <div class="cart-items" id="cartItems">
+                            <!-- سيتم إضافتها بالجافاسكريبت -->
+                        </div>
+
+                        <!-- Continue Shopping -->
+                        <div class="cart-footer">
+                            <a href="shop.html" class="continue-shopping">
+                                <i class="fa-solid fa-arrow-right"></i> متابعة التسوق
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Order Summary -->
+                <div class="col-lg-4">
+                    <div class="order-summary" data-aos="fade-right">
+                        <h4 class="summary-title">ملخص الطلب</h4>
+
+                        <!-- Coupon -->
+                        <div class="coupon-box">
+                            <label>كوبون الخصم</label>
+                            <div class="coupon-input">
+                                <input type="text" placeholder="أدخل الكود" id="couponInput">
+                                <button id="applyCoupon">تطبيق</button>
+                            </div>
+                        </div>
+
+                        <!-- Summary Rows -->
+                        <div class="summary-rows">
+                            <div class="summary-row">
+                                <span>المجموع الفرعي</span>
+                                <span id="subtotal">0 ج</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>الشحن</span>
+                                <span id="shipping">0 ج</span>
+                            </div>
+                            <div class="summary-row discount-row" id="discountRow" style="display:none;">
+                                <span>الخصم</span>
+                                <span id="discount">- 0 ج</span>
+                            </div>
+                            <div class="summary-row total-row">
+                                <span>الإجمالي</span>
+                                <span id="total">0 ج</span>
+                            </div>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <a href="checkout.html" class="btn btn-primary btn-lg w-100" id="checkoutBtn">
+                            <i class="fa-solid fa-credit-card"></i> إتمام الطلب
+                        </a>
+
+                        <!-- Trust Badges -->
+                        <div class="trust-badges">
+                            <div class="trust-item">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>دفع آمن</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <span>توصيل سريع</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                <span>استبدال مجاني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></button>
+    <div class="toast-container position-fixed bottom-0 start-0 p-3" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

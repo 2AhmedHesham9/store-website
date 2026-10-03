@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكوبونات | شباب ستايل</title>
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="sidebar-logo">
+                <i class="fa-solid fa-shirt"></i>
+                <span>شباب <span class="text-gradient">ستايل</span></span>
+            </a>
+            <button class="sidebar-close" id="sidebarClose"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="admin-info">
+            <div class="admin-avatar"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="admin-details"><h6>المدير العام</h6><span>admin@shababstyle.com</span></div>
+        </div>
+        <nav class="sidebar-nav">
+            <span class="nav-section-title">القائمة الرئيسية</span>
+            <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-gauge-high"></i><span>لوحة التحكم</span></a>
+            <a href="products.html" class="nav-item"><i class="fa-solid fa-box"></i><span>المنتجات</span></a>
+            <a href="orders.html" class="nav-item"><i class="fa-solid fa-cart-shopping"></i><span>الطلبات</span></a>
+            <a href="customers.html" class="nav-item"><i class="fa-solid fa-users"></i><span>العملاء</span></a>
+            <a href="categories.html" class="nav-item"><i class="fa-solid fa-layer-group"></i><span>الأقسام</span></a>
+            <a href="coupons.html" class="nav-item active"><i class="fa-solid fa-ticket"></i><span>الكوبونات</span></a>
+            <span class="nav-section-title">التقارير</span>
+            <a href="reports.html" class="nav-item"><i class="fa-solid fa-chart-line"></i><span>التقارير</span></a>
+            <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i><span>الإعدادات</span></a>
+            <span class="nav-section-title">أخرى</span>
+            <a href="../index.html" class="nav-item" target="_blank"><i class="fa-solid fa-globe"></i><span>عرض الموقع</span></a>
+            <a href="#" class="nav-item logout-btn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i><span>تسجيل الخروج</span></a>
+        </nav>
+    </aside>
+
+    <main class="dashboard-main">
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+                <h1 class="page-title">الكوبونات</h1>
+            </div>
+            <div class="topbar-right">
+                <button class="topbar-icon" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+
+            <!-- Quick Stats -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #4ecdc4, #44a08d);">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">كوبونات نشطة</span>
+                            <h3 class="stat-widget-value" id="activeCouponsStat">0</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #4a90e2, #357abd);">
+                            <i class="fa-solid fa-repeat"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">مرات الاستخدام</span>
+                            <h3 class="stat-widget-value">342</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #f9c74f, #f8961e);">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">إجمالي الخصومات</span>
+                            <h3 class="stat-widget-value">12,450 ج</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #e94560, #ff6b6b);">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">منتهية الصلاحية</span>
+                            <h3 class="stat-widget-value" id="expiredCouponsStat">0</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-actions-bar" data-aos="fade-up">
+                <div class="page-actions-left">
+                    <h3>كل الكوبونات (<span id="couponsCount">0</span>)</h3>
+                    <p>إدارة كوبونات الخصم</p>
+                </div>
+                <button class="btn btn-primary" id="addCouponBtn">
+                    <i class="fa-solid fa-plus"></i> إضافة كوبون جديد
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar" data-aos="fade-up">
+                <div class="search-box-dash">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="ابحث بكود الكوبون..." id="couponSearch">
+                </div>
+                <select class="form-select" id="filterCouponStatus">
+                    <option value="">كل الحالات</option>
+                    <option value="active">نشط</option>
+                    <option value="expired">منتهي</option>
+                    <option value="disabled">معطل</option>
+                </select>
+                <button class="btn btn-outline-secondary" id="resetCouponFilters">
+                    <i class="fa-solid fa-rotate-left"></i> مسح
+                </button>
+            </div>
+
+            <!-- Coupons Table -->
+            <div class="dashboard-card" data-aos="fade-up">
+                <div class="table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>الكود</th>
+                                <th>الخصم</th>
+                                <th>الحد الأدنى</th>
+                                <th>الاستخدام</th>
+                                <th>تاريخ البدء</th>
+                                <th>تاريخ الانتهاء</th>
+                                <th>الحالة</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="couponsTableBody">
+                            <!-- سيتم إضافتها بالجافاسكريبت -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- Coupon Modal -->
+    <div class="modal fade" id="couponModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content dashboard-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="couponModalTitle">إضافة كوبون جديد</h5>
+                    <button type="button" class="btn-close-modal-sm" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="couponForm">
+                        <input type="hidden" id="couponId">
+
+                        <div class="mb-3">
+                            <label class="form-label">كود الكوبون *</label>
+                            <input type="text" class="form-control" id="couponCode" placeholder="مثال: SAVE20" required style="text-transform: uppercase;">
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">نوع الخصم *</label>
+                                <select class="form-select" id="couponType" required>
+                                    <option value="percent">نسبة مئوية (%)</option>
+                                    <option value="fixed">مبلغ ثابت (ج)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">قيمة الخصم *</label>
+                                <input type="number" class="form-control" id="couponValue" min="1" required>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mt-1">
+                            <div class="col-md-6">
+                                <label class="form-label">الحد الأدنى للطلب (ج)</label>
+                                <input type="number" class="form-control" id="couponMinOrder" value="0" min="0">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">الحد الأقصى للاستخدام</label>
+                                <input type="number" class="form-control" id="couponMaxUses" value="100" min="1">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mt-1">
+                            <div class="col-md-6">
+                                <label class="form-label">تاريخ البدء *</label>
+                                <input type="date" class="form-control" id="couponStartDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">تاريخ الانتهاء *</label>
+                                <input type="date" class="form-control" id="couponEndDate" required>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <label class="form-label">الحالة</label>
+                            <div class="status-radio-group">
+                                <label class="radio-pill">
+                                    <input type="radio" name="couponStatus" value="active" checked>
+                                    <span><i class="fa-solid fa-check-circle"></i> نشط</span>
+                                </label>
+                                <label class="radio-pill">
+                                    <input type="radio" name="couponStatus" value="disabled">
+                                    <span><i class="fa-solid fa-ban"></i> معطل</span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button class="btn btn-primary" id="saveCouponBtn"><i class="fa-solid fa-save"></i> حفظ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteCouponModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content dashboard-modal text-center">
+                <div class="modal-body p-4">
+                    <div class="delete-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h5>تأكيد الحذف</h5>
+                    <p class="text-muted">هل أنت متأكد من حذف الكوبون "<span id="deleteCouponCode"></span>"؟</p>
+                    <div class="d-flex gap-2 justify-content-center mt-4">
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">إلغاء</button>
+                        <button class="btn btn-danger" id="confirmDeleteCouponBtn"><i class="fa-solid fa-trash"></i> حذف</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="toast-container position-fixed bottom-0 start-0 p-3" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+        <script src="../assets/js/main.js"></script>
+
+    <script src="../assets/js/coupons.js"></script>
+</body>
+</html>

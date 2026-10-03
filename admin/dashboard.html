@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | شباب ستايل</title>
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- ═══════════════════════════════════════
+         Sidebar Overlay (Mobile)
+    ═══════════════════════════════════════ -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- ═══════════════════════════════════════
+         Sidebar
+    ═══════════════════════════════════════ -->
+    <aside class="dashboard-sidebar" id="sidebar">
+
+        <!-- Logo -->
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="sidebar-logo">
+                <i class="fa-solid fa-shirt"></i>
+                <span>شباب <span class="text-gradient">ستايل</span></span>
+            </a>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Admin Info -->
+        <div class="admin-info">
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div class="admin-details">
+                <h6>المدير العام</h6>
+                <span>admin@shababstyle.com</span>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+            <span class="nav-section-title">القائمة الرئيسية</span>
+
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span>لوحة التحكم</span>
+            </a>
+
+            <a href="products.html" class="nav-item">
+                <i class="fa-solid fa-box"></i>
+                <span>المنتجات</span>
+                <span class="nav-badge">48</span>
+            </a>
+
+            <a href="orders.html" class="nav-item">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>الطلبات</span>
+                <span class="nav-badge badge-new">12</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <i class="fa-solid fa-users"></i>
+                <span>العملاء</span>
+            </a>
+
+            <a href="categories.html" class="nav-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>الأقسام</span>
+            </a>
+
+            <a href="coupons.html" class="nav-item">
+                <i class="fa-solid fa-ticket"></i>
+                <span>الكوبونات</span>
+            </a>
+
+            <span class="nav-section-title">التقارير</span>
+
+            <a href="reports.html" class="nav-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>التقارير</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>الإعدادات</span>
+            </a>
+
+            <span class="nav-section-title">أخرى</span>
+
+            <a href="../index.html" class="nav-item" target="_blank">
+                <i class="fa-solid fa-globe"></i>
+                <span>عرض الموقع</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; margin-right: auto;"></i>
+            </a>
+
+            <a href="#" class="nav-item logout-btn" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </nav>
+
+    </aside>
+
+
+    <!-- ═══════════════════════════════════════
+         Main Content
+    ═══════════════════════════════════════ -->
+    <main class="dashboard-main">
+
+        <!-- Topbar -->
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <h1 class="page-title">لوحة التحكم</h1>
+            </div>
+
+            <div class="topbar-right">
+                <!-- Search -->
+                <div class="topbar-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="ابحث...">
+                </div>
+
+                <!-- Notifications -->
+                <button class="topbar-icon" id="notificationsBtn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <!-- Messages -->
+                <button class="topbar-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span class="badge-count">3</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button class="topbar-icon" id="themeToggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Profile -->
+                <div class="topbar-profile dropdown">
+                    <button class="profile-btn" data-bs-toggle="dropdown">
+                        <img src="https://i.pravatar.cc/60?img=68" alt="Admin">
+                        <div class="profile-info">
+                            <h6>المدير العام</h6>
+                            <span>مدير</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i> الملف الشخصي</a></li>
+                        <li><a class="dropdown-item" href="settings.html"><i class="fa-solid fa-gear"></i> الإعدادات</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="#" id="logoutBtn2"><i
+                                    class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Content -->
+        <div class="dashboard-content">
+
+            <!-- Welcome Banner -->
+            <div class="welcome-banner" data-aos="fade-up">
+                <div class="welcome-text">
+                    <h2>أهلاً بيك تاني 👋</h2>
+                    <p>ده ملخص أداء متجرك النهاردة</p>
+                </div>
+                <div class="welcome-actions">
+                    <a href="products.html" class="btn btn-primary">
+                        <i class="fa-solid fa-plus"></i> إضافة منتج
+                    </a>
+                    <a href="orders.html" class="btn btn-outline-primary">
+                        <i class="fa-solid fa-eye"></i> عرض الطلبات
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Stats Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #4ecdc4, #44a08d);">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">مبيعات اليوم</span>
+                            <h3 class="stat-widget-value">12,450 ج</h3>
+                            <div class="stat-widget-trend up">
+                                <i class="fa-solid fa-arrow-up"></i> +15.3%
+                                <span>عن أمس</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #e94560, #ff6b6b);">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">الطلبات الجديدة</span>
+                            <h3 class="stat-widget-value">48</h3>
+                            <div class="stat-widget-trend up">
+                                <i class="fa-solid fa-arrow-up"></i> +8.2%
+                                <span>عن أمس</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #f9c74f, #f8961e);">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">عملاء جدد</span>
+                            <h3 class="stat-widget-value">124</h3>
+                            <div class="stat-widget-trend up">
+                                <i class="fa-solid fa-arrow-up"></i> +12.5%
+                                <span>هذا الشهر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-widget">
+                        <div class="stat-widget-icon" style="background: linear-gradient(135deg, #4a90e2, #357abd);">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div class="stat-widget-content">
+                            <span class="stat-widget-label">زيارات اليوم</span>
+                            <h3 class="stat-widget-value">2,847</h3>
+                            <div class="stat-widget-trend down">
+                                <i class="fa-solid fa-arrow-down"></i> -3.1%
+                                <span>عن أمس</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Charts Row -->
+            <div class="row g-4 mb-4">
+
+                <!-- Sales Chart -->
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <div>
+                                <h5>إحصائيات المبيعات</h5>
+                                <p>آخر 7 أيام</p>
+                            </div>
+                            <div class="card-actions">
+                                <select class="form-select form-select-sm" id="salesChartFilter">
+                                    <option value="7">آخر 7 أيام</option>
+                                    <option value="30">آخر 30 يوم</option>
+                                    <option value="90">آخر 3 شهور</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories Chart -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <div>
+                                <h5>المبيعات حسب القسم</h5>
+                                <p>هذا الشهر</p>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="categoriesChart"></canvas>
+                        </div>
+                        <div class="chart-legend" id="categoriesLegend"></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Tables Row -->
+            <div class="row g-4">
+
+                <!-- Recent Orders -->
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <div>
+                                <h5>آخر الطلبات</h5>
+                                <p>أحدث 5 طلبات</p>
+                            </div>
+                            <a href="orders.html" class="view-all-link">
+                                عرض الكل <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>رقم الطلب</th>
+                                        <th>العميل</th>
+                                        <th>التاريخ</th>
+                                        <th>الإجمالي</th>
+                                        <th>الحالة</th>
+                                        <th>إجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentOrdersTable">
+                                    <tr>
+                                        <td><span class="order-id">#ORD-001</span></td>
+                                        <td>
+                                            <div class="customer-cell">
+                                                <img src="https://i.pravatar.cc/40?img=12" alt="أحمد">
+                                                <span>أحمد محمد</span>
+                                            </div>
+                                        </td>
+                                        <td>2026-01-15</td>
+                                        <td><strong>1,250 ج</strong></td>
+                                        <td><span class="status-badge pending">قيد المعالجة</span></td>
+                                        <td>
+                                            <button class="action-icon-btn" title="عرض">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="order-id">#ORD-002</span></td>
+                                        <td>
+                                            <div class="customer-cell">
+                                                <img src="https://i.pravatar.cc/40?img=33" alt="محمود">
+                                                <span>محمود علي</span>
+                                            </div>
+                                        </td>
+                                        <td>2026-01-15</td>
+                                        <td><strong>850 ج</strong></td>
+                                        <td><span class="status-badge shipped">تم الشحن</span></td>
+                                        <td>
+                                            <button class="action-icon-btn" title="عرض">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="order-id">#ORD-003</span></td>
+                                        <td>
+                                            <div class="customer-cell">
+                                                <img src="https://i.pravatar.cc/40?img=68" alt="يوسف">
+                                                <span>يوسف إبراهيم</span>
+                                            </div>
+                                        </td>
+                                        <td>2026-01-14</td>
+                                        <td><strong>2,100 ج</strong></td>
+                                        <td><span class="status-badge completed">مكتمل</span></td>
+                                        <td>
+                                            <button class="action-icon-btn" title="عرض">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="order-id">#ORD-004</span></td>
+                                        <td>
+                                            <div class="customer-cell">
+                                                <img src="https://i.pravatar.cc/40?img=52" alt="سارة">
+                                                <span>سارة أحمد</span>
+                                            </div>
+                                        </td>
+                                        <td>2026-01-14</td>
+                                        <td><strong>450 ج</strong></td>
+                                        <td><span class="status-badge cancelled">ملغي</span></td>
+                                        <td>
+                                            <button class="action-icon-btn" title="عرض">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="order-id">#ORD-005</span></td>
+                                        <td>
+                                            <div class="customer-cell">
+                                                <img src="https://i.pravatar.cc/40?img=17" alt="عمر">
+                                                <span>عمر خالد</span>
+                                            </div>
+                                        </td>
+                                        <td>2026-01-13</td>
+                                        <td><strong>780 ج</strong></td>
+                                        <td><span class="status-badge pending">قيد المعالجة</span></td>
+                                        <td>
+                                            <button class="action-icon-btn" title="عرض">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Top Products / Stock Alerts -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+                    <!-- Top Products -->
+                    <div class="dashboard-card mb-4">
+                        <div class="card-header-custom">
+                            <div>
+                                <h5>الأكثر مبيعاً</h5>
+                                <p>هذا الشهر</p>
+                            </div>
+                        </div>
+
+                        <div class="top-products-list">
+                            <div class="top-product-item">
+                                <div class="top-product-img">
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100"
+                                        alt="منتج">
+                                </div>
+                                <div class="top-product-info">
+                                    <h6>تيشيرت قطن أوفر سايز</h6>
+                                    <span>120 قطعة</span>
+                                </div>
+                                <div class="top-product-revenue">2,400 ج</div>
+                            </div>
+
+                            <div class="top-product-item">
+                                <div class="top-product-img">
+                                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=100"
+                                        alt="منتج">
+                                </div>
+                                <div class="top-product-info">
+                                    <h6>هودي رياضي شتوي</h6>
+                                    <span>95 قطعة</span>
+                                </div>
+                                <div class="top-product-revenue">3,800 ج</div>
+                            </div>
+
+                            <div class="top-product-item">
+                                <div class="top-product-img">
+                                    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=100"
+                                        alt="منتج">
+                                </div>
+                                <div class="top-product-info">
+                                    <h6>قميص كلاسيك رسمي</h6>
+                                    <span>80 قطعة</span>
+                                </div>
+                                <div class="top-product-revenue">3,600 ج</div>
+                            </div>
+
+                            <div class="top-product-item">
+                                <div class="top-product-img">
+                                    <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=100"
+                                        alt="منتج">
+                                </div>
+                                <div class="top-product-info">
+                                    <h6>بنطلون جينز كاجوال</h6>
+                                    <span>65 قطعة</span>
+                                </div>
+                                <div class="top-product-revenue">2,080 ج</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Stock Alerts -->
+                    <div class="dashboard-card">
+                        <div class="card-header-custom">
+                            <div>
+                                <h5>تنبيهات المخزون</h5>
+                                <p>منتجات قاربت على النفاد</p>
+                            </div>
+                        </div>
+
+                        <div class="stock-alerts-list">
+                            <div class="stock-alert-item">
+                                <div class="stock-alert-icon warning">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                                <div class="stock-alert-info">
+                                    <h6>كاب رياضي</h6>
+                                    <span>متبقي 3 قطع فقط</span>
+                                </div>
+                            </div>
+
+                            <div class="stock-alert-item">
+                                <div class="stock-alert-icon danger">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                </div>
+                                <div class="stock-alert-info">
+                                    <h6>تيشيرت مطبوع</h6>
+                                    <span>متبقي قطعة واحدة!</span>
+                                </div>
+                            </div>
+
+                            <div class="stock-alert-item">
+                                <div class="stock-alert-icon warning">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                                <div class="stock-alert-info">
+                                    <h6>بنطلون قماش</h6>
+                                    <span>متبقي 5 قطع</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+
+</html>

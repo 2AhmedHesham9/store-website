@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الطلبات | شباب ستايل</title>
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="sidebar-logo">
+                <i class="fa-solid fa-shirt"></i>
+                <span>شباب <span class="text-gradient">ستايل</span></span>
+            </a>
+            <button class="sidebar-close" id="sidebarClose"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="admin-info">
+            <div class="admin-avatar"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="admin-details">
+                <h6>المدير العام</h6><span>admin@shababstyle.com</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <span class="nav-section-title">القائمة الرئيسية</span>
+            <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-gauge-high"></i><span>لوحة التحكم</span></a>
+            <a href="products.html" class="nav-item"><i class="fa-solid fa-box"></i><span>المنتجات</span></a>
+            <a href="orders.html" class="nav-item active"><i
+                    class="fa-solid fa-cart-shopping"></i><span>الطلبات</span></a>
+            <a href="customers.html" class="nav-item"><i class="fa-solid fa-users"></i><span>العملاء</span></a>
+            <a href="categories.html" class="nav-item"><i class="fa-solid fa-layer-group"></i><span>الأقسام</span></a>
+            <a href="coupons.html" class="nav-item"><i class="fa-solid fa-ticket"></i><span>الكوبونات</span></a>
+            <span class="nav-section-title">التقارير</span>
+            <a href="reports.html" class="nav-item"><i class="fa-solid fa-chart-line"></i><span>التقارير</span></a>
+            <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i><span>الإعدادات</span></a>
+            <span class="nav-section-title">أخرى</span>
+            <a href="../index.html" class="nav-item" target="_blank"><i class="fa-solid fa-globe"></i><span>عرض
+                    الموقع</span></a>
+            <a href="#" class="nav-item logout-btn" id="logoutBtn"><i
+                    class="fa-solid fa-right-from-bracket"></i><span>تسجيل الخروج</span></a>
+        </nav>
+    </aside>
+
+    <main class="dashboard-main">
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+                <h1 class="page-title">إدارة الطلبات</h1>
+            </div>
+            <div class="topbar-right">
+                <button class="topbar-icon" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                <div class="topbar-profile dropdown">
+                    <button class="profile-btn" data-bs-toggle="dropdown">
+                        <img src="https://i.pravatar.cc/60?img=68" alt="Admin">
+                        <div class="profile-info">
+                            <h6>المدير</h6><span>admin</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+
+            <!-- Order Stats -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon pending"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <span>قيد المعالجة</span>
+                            <h4>12</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon shipped"><i class="fa-solid fa-truck-fast"></i></div>
+                        <div>
+                            <span>تم الشحن</span>
+                            <h4>8</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon completed"><i class="fa-solid fa-check-circle"></i></div>
+                        <div>
+                            <span>مكتمل</span>
+                            <h4>156</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="order-stat-card">
+                        <div class="order-stat-icon cancelled"><i class="fa-solid fa-times-circle"></i></div>
+                        <div>
+                            <span>ملغي</span>
+                            <h4>4</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar" data-aos="fade-up">
+                <div class="search-box-dash">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="ابحث برقم الطلب أو اسم العميل..." id="orderSearch">
+                </div>
+                <select class="form-select" id="filterStatus">
+                    <option value="">كل الحالات</option>
+                    <option value="pending">قيد المعالجة</option>
+                    <option value="shipped">تم الشحن</option>
+                    <option value="completed">مكتمل</option>
+                    <option value="cancelled">ملغي</option>
+                </select>
+                <input type="date" class="form-control" id="filterDate">
+            </div>
+
+            <!-- Orders Table -->
+            <div class="dashboard-card" data-aos="fade-up">
+                <div class="table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>رقم الطلب</th>
+                                <th>العميل</th>
+                                <th>التاريخ</th>
+                                <th>المنتجات</th>
+                                <th>الإجمالي</th>
+                                <th>الدفع</th>
+                                <th>الحالة</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- سيتم إضافتها بالجافاسكريبت -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-pagination">
+                    <span>عرض <strong>1</strong> - <strong>10</strong> من <strong id="totalOrders">180</strong></span>
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">18</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content dashboard-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">تفاصيل الطلب <span class="order-id" id="orderModalId">#ORD-001</span></h5>
+                    <button type="button" class="btn-close-modal-sm" data-bs-dismiss="modal"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Status & Actions -->
+                    <div class="order-actions-bar">
+                        <div>
+                            <label class="form-label">حالة الطلب</label>
+                            <select class="form-select" id="orderStatusSelect">
+                                <option value="pending">قيد المعالجة</option>
+                                <option value="shipped">تم الشحن</option>
+                                <option value="completed">مكتمل</option>
+                                <option value="cancelled">ملغي</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="updateOrderStatus">
+                            <i class="fa-solid fa-save"></i> تحديث
+                        </button>
+                    </div>
+
+                    <div class="row g-4 mt-2">
+                        <!-- Customer Info -->
+                        <div class="col-md-6">
+                            <div class="order-section">
+                                <h6><i class="fa-solid fa-user"></i> بيانات العميل</h6>
+                                <ul class="order-info-list">
+                                    <li><strong>الاسم:</strong> <span id="modalCustomerName">أحمد محمد</span></li>
+                                    <li><strong>الإيميل:</strong> <span id="modalCustomerEmail">ahmed@email.com</span>
+                                    </li>
+                                    <li><strong>الموبايل:</strong> <span id="modalCustomerPhone">01097957329</span></li>
+                                    <li><strong>العنوان:</strong> <span id="modalCustomerAddress">القاهرة، مدينة
+                                            نصر</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Order Info -->
+                        <div class="col-md-6">
+                            <div class="order-section">
+                                <h6><i class="fa-solid fa-receipt"></i> بيانات الطلب</h6>
+                                <ul class="order-info-list">
+                                    <li><strong>التاريخ:</strong> <span id="modalOrderDate">2026-01-15</span></li>
+                                    <li><strong>طريقة الدفع:</strong> <span id="modalPaymentMethod">فيزا</span></li>
+                                    <li><strong>حالة الدفع:</strong> <span id="modalPaymentStatus">مدفوع</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Products -->
+                        <div class="col-12">
+                            <div class="order-section">
+                                <h6><i class="fa-solid fa-box"></i> المنتجات</h6>
+                                <div class="order-products" id="orderProductsList">
+                                    <!-- سيتم إضافتها بالجافاسكريبت -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Totals -->
+                        <div class="col-12">
+                            <div class="order-totals">
+                                <div class="order-total-row"><span>المجموع الفرعي:</span><strong>2,400 ج</strong></div>
+                                <div class="order-total-row"><span>الشحن:</span><strong>50 ج</strong></div>
+                                <div class="order-total-row total"><span>الإجمالي:</span><strong>2,450 ج</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="toast-container position-fixed bottom-0 start-0 p-3" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script src="../assets/js/orders.js"></script>
+</body>
+
+</html>

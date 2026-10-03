@@ -1,0 +1,10 @@
+admin/
+├── dashboard.html      ← الرئيسية
+├── products.html       ← إدارة المنتجات
+├── orders.html         ← إدارة الطلبات
+├── customers.html      ← إدارة العملاء
+├── categories.html     ← إدارة الأقسام
+├── coupons.html        ← الكوبونات
+├── reports.html        ← التقارير
+├── settings.html       ← الإعدادات
+└── login.html          ← دخول الأدمن (اختياري)

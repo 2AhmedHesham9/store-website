@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تسوق أحدث ملابس الشباب - فلاتر متقدمة وأسعار منافسة">
+    <title>المتجر | شباب ستايل</title>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         Navbar (نفس الرئيسية)
+    ═══════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg fixed-top main-navbar" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">
+                <i class="fa-solid fa-shirt"></i>
+                <span>شباب <span class="text-gradient">ستايل</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shop.html">المتجر</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">الأقسام</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="shop.html?cat=youth">ملابس شبابي</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=classic">ملابس كلاسيك</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=sport">ملابس رياضية</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=casual">كاجوال</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=accessories">إكسسوارات</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">من نحن</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-actions d-flex align-items-center gap-3">
+                    <button class="icon-btn" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                    <a href="wishlist.html" class="icon-btn position-relative">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="badge-count" id="wishlistCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn position-relative" id="cartBtn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="badge-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="ابحث عن منتج..." id="searchInput">
+                <button class="close-search" id="searchClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════
+         Page Header / Breadcrumb
+    ═══════════════════════════════════════ -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content" data-aos="fade-up">
+                <h1>المتجر</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                        <li class="breadcrumb-item active">المتجر</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Shop Section
+    ═══════════════════════════════════════ -->
+    <section class="shop-section section-padding">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- ═══ Sidebar Filters ═══ -->
+                <div class="col-lg-3">
+                    <button class="btn btn-primary w-100 d-lg-none mb-3" id="filterToggle">
+                        <i class="fa-solid fa-filter"></i> الفلاتر
+                    </button>
+
+                    <aside class="shop-sidebar" id="shopSidebar">
+
+                        <!-- Search in sidebar -->
+                        <div class="filter-widget">
+                            <h5 class="filter-title">البحث</h5>
+                            <div class="filter-search">
+                                <input type="text" placeholder="ابحث..." id="sidebarSearch">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Categories -->
+                        <div class="filter-widget">
+                            <h5 class="filter-title">الأقسام</h5>
+                            <ul class="filter-list" id="categoryFilter">
+                                <li>
+                                    <label>
+                                        <input type="radio" name="category" value="all" checked>
+                                        <span>كل الأقسام</span>
+                                        <span class="count">(48)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="category" value="youth">
+                                        <span>ملابس شبابي</span>
+                                        <span class="count">(12)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="category" value="classic">
+                                        <span>ملابس كلاسيك</span>
+                                        <span class="count">(10)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="category" value="sport">
+                                        <span>ملابس رياضية</span>
+                                        <span class="count">(8)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="category" value="casual">
+                                        <span>كاجوال</span>
+                                        <span class="count">(10)</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="category" value="accessories">
+                                        <span>إكسسوارات</span>
+                                        <span class="count">(8)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="filter-widget">
+                            <h5 class="filter-title">السعر</h5>
+                            <div class="price-range">
+                                <input type="range" min="0" max="1000" value="1000" id="priceRange">
+                                <div class="price-values">
+                                    <span>0 ج</span>
+                                    <span id="priceValue">1000 ج</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sizes -->
+                        <div class="filter-widget">
+                            <h5 class="filter-title">المقاس</h5>
+                            <div class="size-options" id="sizeFilter">
+                                <button class="size-btn active" data-size="all">الكل</button>
+                                <button class="size-btn" data-size="s">S</button>
+                                <button class="size-btn" data-size="m">M</button>
+                                <button class="size-btn" data-size="l">L</button>
+                                <button class="size-btn" data-size="xl">XL</button>
+                                <button class="size-btn" data-size="xxl">XXL</button>
+                            </div>
+                        </div>
+
+                        <!-- Colors -->
+                        <div class="filter-widget">
+                            <h5 class="filter-title">اللون</h5>
+                            <div class="color-options" id="colorFilter">
+                                <button class="color-btn active" data-color="all"
+                                    style="background: linear-gradient(135deg, #e94560, #4ecdc4, #f9c74f);"
+                                    title="الكل"></button>
+                                <button class="color-btn" data-color="black" style="background: #1a1a2e;"
+                                    title="أسود"></button>
+                                <button class="color-btn" data-color="white"
+                                    style="background: #ffffff; border: 1px solid #ddd;" title="أبيض"></button>
+                                <button class="color-btn" data-color="red" style="background: #e94560;"
+                                    title="أحمر"></button>
+                                <button class="color-btn" data-color="blue" style="background: #4a90e2;"
+                                    title="أزرق"></button>
+                                <button class="color-btn" data-color="green" style="background: #4ecdc4;"
+                                    title="أخضر"></button>
+                                <button class="color-btn" data-color="yellow" style="background: #f9c74f;"
+                                    title="أصفر"></button>
+                            </div>
+                        </div>
+
+                        <!-- Brands -->
+                        <div class="filter-widget">
+                            <h5 class="filter-title">الماركة</h5>
+                            <ul class="filter-list">
+                                <li><label><input type="checkbox" value="nike"> <span>Nike</span></label></li>
+                                <li><label><input type="checkbox" value="adidas"> <span>Adidas</span></label></li>
+                                <li><label><input type="checkbox" value="zara"> <span>Zara</span></label></li>
+                                <li><label><input type="checkbox" value="h&m"> <span>H&M</span></label></li>
+                            </ul>
+                        </div>
+
+                        <button class="btn btn-outline-primary w-100 mt-3" id="clearFilters">
+                            <i class="fa-solid fa-rotate-left"></i> مسح الفلاتر
+                        </button>
+                    </aside>
+                </div>
+
+
+                <!-- ═══ Products Area ═══ -->
+                <div class="col-lg-9">
+
+                    <!-- Toolbar -->
+                    <div class="shop-toolbar">
+                        <div class="results-count">
+                            <p>عرض <strong id="resultsCount">12</strong> من <strong>48</strong> منتج</p>
+                        </div>
+                        <div class="toolbar-actions">
+                            <select class="form-select form-select-sm" id="sortSelect">
+                                <option value="default">الترتيب الافتراضي</option>
+                                <option value="newest">الأحدث</option>
+                                <option value="cheap">الأرخص أولاً</option>
+                                <option value="expensive">الأغلى أولاً</option>
+                                <option value="rating">الأعلى تقييماً</option>
+                            </select>
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid"><i
+                                        class="fa-solid fa-grip"></i></button>
+                                <button class="view-btn" data-view="list"><i class="fa-solid fa-list"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="row g-4" id="shopGrid">
+
+                        <!-- Product 1 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="youth" data-price="240"
+                            data-rating="4">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
+                                        alt="تيشيرت" loading="lazy">
+                                    <span class="product-badge sale">خصم 20%</span>
+                                    <div class="product-actions">
+                                        <button class="action-btn" aria-label="المفضلة"><i
+                                                class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">شبابي</span>
+                                    <h5 class="product-title"><a href="product.html">تيشيرت قطن أوفر سايز</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i><span>(4.0)</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="new-price">240 ج</span>
+                                        <span class="old-price">300 ج</span>
+                                    </div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="classic" data-price="450"
+                            data-rating="5">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500"
+                                        alt="قميص" loading="lazy">
+                                    <span class="product-badge new">جديد</span>
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">كلاسيك</span>
+                                    <h5 class="product-title"><a href="product.html">قميص كلاسيك رسمي</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><span>(5.0)</span>
+                                    </div>
+                                    <div class="product-price"><span class="new-price">450 ج</span></div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="sport" data-price="380"
+                            data-rating="4.5">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500"
+                                        alt="هودي" loading="lazy">
+                                    <span class="product-badge hot">الأكثر مبيعاً</span>
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">رياضي</span>
+                                    <h5 class="product-title"><a href="product.html">هودي رياضي شتوي</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i><span>(4.5)</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="new-price">380 ج</span>
+                                        <span class="old-price">500 ج</span>
+                                    </div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="casual" data-price="320"
+                            data-rating="4">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=500"
+                                        alt="بنطلون" loading="lazy">
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">كاجوال</span>
+                                    <h5 class="product-title"><a href="product.html">بنطلون جينز كاجوال</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i><span>(4.0)</span>
+                                    </div>
+                                    <div class="product-price"><span class="new-price">320 ج</span></div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="youth" data-price="180"
+                            data-rating="4">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500"
+                                        alt="تيشيرت" loading="lazy">
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">شبابي</span>
+                                    <h5 class="product-title"><a href="product.html">تيشيرت مطبوع</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i><span>(4.0)</span>
+                                    </div>
+                                    <div class="product-price"><span class="new-price">180 ج</span></div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="accessories" data-price="150"
+                            data-rating="4">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=500"
+                                        alt="كاب" loading="lazy">
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">إكسسوارات</span>
+                                    <h5 class="product-title"><a href="product.html">كاب رياضي</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i><span>(4.0)</span>
+                                    </div>
+                                    <div class="product-price"><span class="new-price">150 ج</span></div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="classic" data-price="550"
+                            data-rating="5">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500"
+                                        alt="بدلة" loading="lazy">
+                                    <span class="product-badge sale">خصم 15%</span>
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">كلاسيك</span>
+                                    <h5 class="product-title"><a href="product.html">بدلة رسمية كاملة</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><span>(5.0)</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="new-price">550 ج</span>
+                                        <span class="old-price">650 ج</span>
+                                    </div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="sport" data-price="280"
+                            data-rating="4.5">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=500"
+                                        alt="تراكسوت" loading="lazy">
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">رياضي</span>
+                                    <h5 class="product-title"><a href="product.html">تراكسوت رياضي</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i><span>(4.5)</span>
+                                    </div>
+                                    <div class="product-price"><span class="new-price">280 ج</span></div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 9 -->
+                        <div class="col-lg-4 col-md-6 product-item" data-category="casual" data-price="420"
+                            data-rating="4.5">
+                            <div class="product-card">
+                                <div class="product-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=500"
+                                        alt="تيشيرت كاجوال" loading="lazy">
+                                    <span class="product-badge new">جديد</span>
+                                    <div class="product-actions">
+                                        <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
+                                        <button class="action-btn quick-view" data-bs-toggle="modal"
+                                            data-bs-target="#quickViewModal"><i class="fa-regular fa-eye"></i></button>
+                                        <button class="action-btn"><i class="fa-solid fa-code-compare"></i></button>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-cat">كاجوال</span>
+                                    <h5 class="product-title"><a href="product.html">تيشيرت كاجوال ملون</a></h5>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i><span>(4.5)</span>
+                                    </div>
+                                    <div class="product-price"><span class="new-price">420 ج</span></div>
+                                    <button class="btn btn-add-cart w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                        للسلة</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="pagination-wrapper" aria-label="ترقيم الصفحات">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#"><i
+                                        class="fa-solid fa-chevron-right"></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="fa-solid fa-chevron-left"></i></a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Quick View Modal
+    ═══════════════════════════════════════ -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content quick-view-modal">
+                <button type="button" class="btn-close-modal" data-bs-dismiss="modal"><i
+                        class="fa-solid fa-xmark"></i></button>
+                <div class="modal-body">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-5">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" alt="منتج"
+                                class="img-fluid rounded-3">
+                        </div>
+                        <div class="col-md-7">
+                            <span class="product-cat">شبابي</span>
+                            <h3 class="mb-3">تيشيرت قطن أوفر سايز</h3>
+                            <div class="product-rating mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i><span>(4.0)</span>
+                            </div>
+                            <div class="product-price mb-3">
+                                <span class="new-price">240 ج</span>
+                                <span class="old-price">300 ج</span>
+                            </div>
+                            <p class="text-muted mb-4">تيشيرت قطن 100% بتصميم عصري مريح ومناسب لكل المناسبات.</p>
+                            <div class="mb-3">
+                                <strong>المقاس:</strong>
+                                <div class="size-options mt-2">
+                                    <button class="size-btn">S</button>
+                                    <button class="size-btn active">M</button>
+                                    <button class="size-btn">L</button>
+                                    <button class="size-btn">XL</button>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100"><i class="fa-solid fa-cart-plus"></i> أضف
+                                للسلة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scroll Top -->
+    <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3" id="toastContainer"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/shop.js">
+
+    </script>
+
+</body>
+
+</html>

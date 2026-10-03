@@ -1,0 +1,62 @@
+
+---
+
+## 🚀 طريقة التشغيل
+
+1. **حمّل المشروع** أو اعمل Clone
+2. **افتح `index.html`** في المتصفح
+3. **للوصول للداشبورد:** افتح `admin/dashboard.html`
+
+> ⚠️ ملاحظة: المشروع Frontend فقط — يخزن البيانات في LocalStorage،
+> لربطه بـ Backend حقيقي اتبع قسم "التطوير المستقبلي".
+
+---
+
+## 🎟️ كوبونات تجريبية
+
+| الكود | الخصم | الحد الأدنى |
+|-------|-------|-------------|
+| `SAVE10` | 10% | 200 ج |
+| `SAVE20` | 20% | 500 ج |
+| `WELCOME` | 50 ج | بدون |
+| `FLASH50` | 100 ج | 1000 ج |
+
+---
+
+## 🔑 مسارات مهمة
+
+- 🏠 **الموقع:** `index.html`
+- 📊 **الداشبورد:** `admin/dashboard.html`
+- 🛍️ **المتجر:** `shop.html`
+
+---
+
+## 🎨 لوحة الألوان
+
+| اللون | الكود | الاستخدام |
+|-------|-------|-----------|
+| كحلي غامق | `#1a1a2e` | الأساسي |
+| أحمر وردي | `#e94560` | الثانوي (CTA) |
+| ذهبي | `#f9c74f` | مميز |
+| تركواز | `#4ecdc4` | نجاح |
+| رمادي فاتح | `#f4f6f9` | خلفيات |
+
+---
+
+## 🔮 التطوير المستقبلي
+
+### Backend (Node.js + Express + MongoDB)
+```javascript
+// API Endpoints المقترحة
+GET    /api/products
+POST   /api/products
+PUT    /api/products/:id
+DELETE /api/products/:id
+
+GET    /api/orders
+POST   /api/orders
+PUT    /api/orders/:id/status
+
+POST   /api/auth/login
+POST   /api/auth/register
+GET    /api/auth/me

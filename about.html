@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تعرف على شباب ستايل - قصتنا ورؤيتنا وفريقنا">
+    <title>من نحن | شباب ستايل</title>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div id="loader" class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top main-navbar" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">
+                <i class="fa-solid fa-shirt"></i>
+                <span>شباب <span class="text-gradient">ستايل</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">المتجر</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">الأقسام</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="shop.html?cat=youth">ملابس شبابي</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=classic">ملابس كلاسيك</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=sport">ملابس رياضية</a></li>
+                            <li><a class="dropdown-item" href="shop.html?cat=casual">كاجوال</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">من نحن</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-actions d-flex align-items-center gap-3">
+                    <button class="icon-btn" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                    <a href="wishlist.html" class="icon-btn position-relative">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="badge-count" id="wishlistCount">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn position-relative" id="cartBtn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="badge-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="ابحث عن منتج..." id="searchInput">
+                <button class="close-search" id="searchClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content" data-aos="fade-up">
+                <h1>من نحن</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                        <li class="breadcrumb-item active">من نحن</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         About Story
+    ═══════════════════════════════════════ -->
+    <section class="about-story section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800"
+                            alt="متجر شباب ستايل" class="img-fluid about-img">
+                        <div class="about-exp-badge">
+                            <span>5+</span>
+                            <p>سنوات خبرة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="section-subtitle">قصتنا</span>
+                    <h2 class="section-title">شباب <span class="text-gradient">ستايل</span> — عنوان الأناقة</h2>
+                    <p class="about-text">
+                        بدأت رحلتنا في 2020 برؤية بسيطة: نقدّم للشباب المصري ملابس عصرية بجودة عالية
+                        وأسعار مناسبة. من متجر صغير في القاهرة، أصبحنا اليوم واحد من أكبر المتاجر
+                        الإلكترونية المتخصصة في أزياء الشباب.
+                    </p>
+                    <p class="about-text">
+                        بنؤمن إن الأناقة مش رفاهية، دي حق لكل شاب عايز يظهر بأفضل شكل.
+                        عشان كده بنختار كل قطعة بعناية، ونشتغل مع أفضل المصانع المحلية والعالمية.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>جودة مضمونة 100%</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>أسعار في متناول الجميع</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>توصيل لجميع المحافظات</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>خدمة عملاء 24/7</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Stats Section
+    ═══════════════════════════════════════ -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>+5000</h3>
+                        <p>عميل سعيد</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-box"></i>
+                        <h3>+800</h3>
+                        <p>منتج متنوع</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-star"></i>
+                        <h3>4.9</h3>
+                        <p>تقييم العملاء</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <h3>+10000</h3>
+                        <p>طلب تم توصيله</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Values Section
+    ═══════════════════════════════════════ -->
+    <section class="values-section section-padding bg-light-section">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-subtitle">قيمنا</span>
+                <h2 class="section-title">المبادئ اللي <span class="text-gradient">بنمشي عليها</span></h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h4>الجودة أولاً</h4>
+                        <p>بنختار كل قطعة بعناية من أفضل المصانع لضمان أعلى جودة لعملائنا.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h4>رضا العميل</h4>
+                        <p>رضا العميل هو مقياس نجاحنا. بنسعى دايماً لتقديم أفضل خدمة.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4>السرعة والالتزام</h4>
+                        <p>بنحترم وقت عملائنا، والتوصيل السريع جزء من التزامنا.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h4>الإبداع والابتكار</h4>
+                        <p>بنواكب أحدث صيحات الموضة ونقدم كل جديد لعملائنا.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4>الثقة والأمان</h4>
+                        <p>دفع آمن، ضمان استبدال، وسياسات واضحة بدون أي مفاجآت.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h4>الاستدامة</h4>
+                        <p>بنهتم بالبيئة ونستخدم مواد صديقة للبيئة في التغليف.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         Team Section
+    ═══════════════════════════════════════ -->
+    <section class="team-section section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-subtitle">فريقنا</span>
+                <h2 class="section-title">تعرف على <span class="text-gradient">الفريق</span></h2>
+                <p class="section-desc">فريق شغوف بيعمل على تقديم أفضل تجربة تسوق</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://i.pravatar.cc/300?img=68" alt="محمد أحمد" loading="lazy">
+                            <div class="team-social">
+                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h5>محمد أحمد</h5>
+                            <span>المؤسس والمدير التنفيذي</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://i.pravatar.cc/300?img=12" alt="أحمد سامي" loading="lazy">
+                            <div class="team-social">
+                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h5>أحمد سامي</h5>
+                            <span>مدير التسويق</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://i.pravatar.cc/300?img=33" alt="خالد محمود" loading="lazy">
+                            <div class="team-social">
+                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h5>خالد محمود</h5>
+                            <span>مدير خدمة العملاء</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://i.pravatar.cc/300?img=52" alt="سارة علي" loading="lazy">
+                            <div class="team-social">
+                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h5>سارة علي</h5>
+                            <span>مديرة التصميم</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         CTA Section
+    ═══════════════════════════════════════ -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box" data-aos="zoom-in">
+                <h2>جاهز تبدأ التسوق؟</h2>
+                <p>اكتشف أحدث الموديلات بأسعار منافسة</p>
+                <a href="shop.html" class="btn btn-light btn-lg">
+                    <i class="fa-solid fa-bag-shopping"></i> تسوق الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <a class="footer-logo" href="index.html">
+                            <i class="fa-solid fa-shirt"></i>
+                            <span>شباب <span class="text-gradient">ستايل</span></span>
+                        </a>
+                        <p>متجرك المفضل لأحدث صيحات الموضة للشباب.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <div class="footer-links">
+                        <h5>روابط سريعة</h5>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="shop.html">المتجر</a></li>
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <div class="footer-links">
+                        <h5>الأقسام</h5>
+                        <ul>
+                            <li><a href="shop.html?cat=youth">ملابس شبابي</a></li>
+                            <li><a href="shop.html?cat=classic">ملابس كلاسيك</a></li>
+                            <li><a href="shop.html?cat=sport">ملابس رياضية</a></li>
+                            <li><a href="shop.html?cat=casual">كاجوال</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-contact">
+                        <h5>تواصل معنا</h5>
+                        <ul>
+                            <li><i class="fa-solid fa-location-dot"></i> القاهرة، مصر</li>
+                            <li><i class="fa-solid fa-phone"></i> 01097957329</li>
+                            <li><i class="fa-solid fa-envelope"></i> admin@gmail.com</li>
+                        </ul>
+                        <div class="payment-methods">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-paypal"></i>
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026<span class="text-gradient">شباب ستايل</span>. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-arrow-up"></i></button>
+    <div class="toast-container position-fixed bottom-0 start-0 p-3" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
